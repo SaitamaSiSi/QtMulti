@@ -1,0 +1,14 @@
+prefix=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-4.4.4-x64-install
+exec_prefix=${prefix}
+libdir=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-4.4.4-x64-install/lib
+includedir=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-4.4.4-x64-install/include
+
+Name: libswscale
+Description: FFmpeg image rescaling library
+Version: 5.9.100
+Requires: 
+Requires.private: libavutil >= 56.70.100
+Conflicts:
+Libs: -L${libdir}  -lswscale 
+Libs.private: -lm -latomic
+Cflags: -I${includedir}

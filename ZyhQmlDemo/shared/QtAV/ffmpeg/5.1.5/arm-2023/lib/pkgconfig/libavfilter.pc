@@ -1,0 +1,14 @@
+prefix=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-5.1.5-arm-2023-install
+exec_prefix=${prefix}
+libdir=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-5.1.5-arm-2023-install/lib
+includedir=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-5.1.5-arm-2023-install/include
+
+Name: libavfilter
+Description: FFmpeg audio/video filtering library
+Version: 8.44.100
+Requires: 
+Requires.private: libswscale >= 6.7.100, libavformat >= 59.27.100, libavcodec >= 59.37.100, libswresample >= 4.7.100, libavutil >= 57.28.100
+Conflicts:
+Libs: -L${libdir}  -lavfilter 
+Libs.private: -pthread -lm -latomic
+Cflags: -I${includedir}

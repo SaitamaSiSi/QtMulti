@@ -1,0 +1,14 @@
+prefix=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-5.1.5-arm-2016-install
+exec_prefix=${prefix}
+libdir=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-5.1.5-arm-2016-install/lib
+includedir=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-5.1.5-arm-2016-install/include
+
+Name: libswscale
+Description: FFmpeg image rescaling library
+Version: 6.7.100
+Requires: 
+Requires.private: libavutil >= 57.28.100
+Conflicts:
+Libs: -L${libdir}  -lswscale 
+Libs.private: -lm -latomic
+Cflags: -I${includedir}

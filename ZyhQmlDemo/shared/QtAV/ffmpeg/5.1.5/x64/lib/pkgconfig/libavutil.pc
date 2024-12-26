@@ -1,0 +1,14 @@
+prefix=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-5.1.5-x64-install
+exec_prefix=${prefix}
+libdir=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-5.1.5-x64-install/lib
+includedir=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-5.1.5-x64-install/include
+
+Name: libavutil
+Description: FFmpeg utility library
+Version: 57.28.100
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavutil 
+Libs.private: -pthread -lm -latomic -L/usr/lib/x86_64-linux-gnu -lX11
+Cflags: -I${includedir}

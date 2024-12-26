@@ -1,0 +1,6 @@
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_VERSION 1)
+set(CMAKE_SYSTEM_PROCESSOR "arm")
+set(CMAKE_CXX_FLAGS "-mfloat-abi=softfp -mfpu=neon ${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_COMPILER "/media/gmind31/Linux-Work/work/Toolchain/backup/5.5.0-eabi/gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabi/bin/arm-linux-gnueabi-g++")
+set(CMAKE_C_COMPILER "/media/gmind31/Linux-Work/work/Toolchain/backup/5.5.0-eabi/gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabi/bin/arm-linux-gnueabi-gcc")

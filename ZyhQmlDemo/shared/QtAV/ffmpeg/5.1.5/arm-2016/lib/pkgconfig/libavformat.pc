@@ -1,0 +1,14 @@
+prefix=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-5.1.5-arm-2016-install
+exec_prefix=${prefix}
+libdir=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-5.1.5-arm-2016-install/lib
+includedir=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-5.1.5-arm-2016-install/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 59.27.100
+Requires: 
+Requires.private: libavcodec >= 59.37.100, libswresample >= 4.7.100, libavutil >= 57.28.100
+Conflicts:
+Libs: -L${libdir}  -lavformat 
+Libs.private: -lm -latomic -lz -lssl -lcrypto
+Cflags: -I${includedir}

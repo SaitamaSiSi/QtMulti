@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/key">
+        <file>rsa_pub_encrypt_key</file>
+        <file>rsa_pri_encrypt_key</file>
+    </qresource>
+</RCC>

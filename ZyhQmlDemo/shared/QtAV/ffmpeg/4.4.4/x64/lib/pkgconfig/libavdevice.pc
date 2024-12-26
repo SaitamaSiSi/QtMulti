@@ -1,0 +1,14 @@
+prefix=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-4.4.4-x64-install
+exec_prefix=${prefix}
+libdir=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-4.4.4-x64-install/lib
+includedir=/home/gmind31/work/Products/S5P4418/ok4418/project/QtAV/avbuild/ffmpeg-4.4.4-x64-install/include
+
+Name: libavdevice
+Description: FFmpeg device handling library
+Version: 58.13.100
+Requires: 
+Requires.private: libavfilter >= 7.110.100, libswscale >= 5.9.100, libavformat >= 58.76.100, libavcodec >= 58.134.100, libswresample >= 3.9.100, libavutil >= 56.70.100
+Conflicts:
+Libs: -L${libdir}  -lavdevice 
+Libs.private: -lm -latomic -L/usr/lib/x86_64-linux-gnu -lxcb -L/usr/lib/x86_64-linux-gnu -lxcb-shm -L/usr/lib/x86_64-linux-gnu -lasound -L/usr/lib/x86_64-linux-gnu -lSDL2 -lsndio -lXv -lX11 -lXext
+Cflags: -I${includedir}
