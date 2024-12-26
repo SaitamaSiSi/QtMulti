@@ -4,9 +4,14 @@ import QtQuick.Controls 2.0
 Item {
     id: root
     property string imgSource: ""
+    function setImgSource(imgSrc) {
+        imageViewer.source = imgSrc
+    }
+
     Rectangle {
         id: text
         anchors.fill: parent
+        color: "#00955656"
 
         // 用来显示一个等待图元
         BusyIndicator {
@@ -40,6 +45,7 @@ Item {
                 else if(imageViewer.status === Image.Ready){
                     stateLabel.visible = false
                     busy.running = false;
+                    playing = true;
                 }
                 else if(imageViewer.status === Image.Error) {
                     busy.running = false;

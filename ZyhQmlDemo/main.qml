@@ -21,10 +21,11 @@ Window {
     }
     */
 
-    /* 多媒体*/
+    /* 多媒体
     MyAllMediaSample {
         id: myAllMediaSample
     }
+    */
 
 
     /* cpp 测试
@@ -208,5 +209,56 @@ Window {
         }
     }
     */
+
+    Flipable {
+         id: flipable_test
+         x: 0//22
+         y: 0//25
+         width: 200
+         height: 64
+
+         property bool flipped: false
+
+         front: Item { anchors.fill: parent }
+         back: Item {
+            anchors.fill: parent
+            Text {
+                x:22
+                y:20
+                text: qsTr("Test文本内容")
+//                font.family: Constants.fontOPPOSans
+//                font.pixelSize: 16
+                color: "#8696a3"
+                font.pixelSize: 22
+                lineHeight: 1
+                font.wordSpacing: 4.9
+                font.weight: Font.Medium
+                font.family: Constants.fontOPPOSans
+            }
+         }
+
+         transform: Rotation {
+             id: rotation
+             origin.x: flipable_test.width/2
+             origin.y: flipable_test.height/2
+             axis.x: 0; axis.y: 1; axis.z: 0     // set axis.y to 1 to rotate around y-axis
+             angle: 0    // the default angle
+         }
+
+         states: State {
+             name: "back"
+             PropertyChanges { target: rotation; angle: 180 }
+             when: flipable_test.flipped
+         }
+
+         transitions: Transition {
+             NumberAnimation { target: rotation; property: "angle"; duration: 300 }
+         }
+
+         MouseArea {
+             anchors.fill: parent
+             onClicked: flipable_test.flipped = !flipable_test.flipped
+         }
+     }
 
 }

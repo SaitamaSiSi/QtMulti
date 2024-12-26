@@ -32,21 +32,9 @@ Item {
                         anchors.left: parent.left
                         anchors.leftMargin: 20
                     }
-                    Image {
-                        id: fan_img
-                        source: "qrc:/resources/images/风扇-关.png"
-                        smooth: true
-                        width: parent.width / 4 * 3
-                        anchors.left: parent.left
-                        anchors.leftMargin: parent.width / 8
-                        height: (parent.height  - fan_text_area.height) / 4 * 3
-                        anchors.top: parent.top
-                        anchors.topMargin: (parent.height  - fan_text_area.height) / 8
-                    }
                     MyGif {
                         id: fan_gif
-                        visible: false
-                        imgSource: "qrc:/resources/images/风扇开.gif"
+                        imgSource: "qrc:/resources/images/风扇-关.png"
                         smooth: true
                         width: parent.width / 4 * 3
                         anchors.left: parent.left
@@ -59,7 +47,7 @@ Item {
                         id: fan_text_area
                         width: parent.width
                         height: parent.height / 5
-                        anchors.top: fan_img.bottom
+                        anchors.top: fan_gif.bottom
                         anchors.topMargin: 10
                         Row {
                             width: parent.width
@@ -88,13 +76,11 @@ Item {
                                         if (fan_status.text == "关闭") {
                                             fan_status.text = "开启"
                                             fan_status.color = "green"
-                                            fan_img.visible = false
-                                            fan_gif.visible = true
+                                            fan_gif.setImgSource("qrc:/resources/images/风扇开.gif");
                                         } else if (fan_status.text == "开启") {
                                             fan_status.text = "关闭"
                                             fan_status.color = "skyblue"
-                                            fan_gif.visible = false
-                                            fan_img.visible = true
+                                            fan_gif.setImgSource("qrc:/resources/images/风扇-关.png");
                                         }
                                     }
                                 }
