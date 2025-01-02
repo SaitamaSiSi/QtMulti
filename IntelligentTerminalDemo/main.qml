@@ -3,7 +3,7 @@ import QtQuick.Window 2.0
 import QtQuick.Controls 2.0
 
 Window {
-    id: main
+    id: rootMain
     visible: true
     width: 1280
     height: 480
@@ -14,6 +14,7 @@ Window {
     x: (Screen.width - width) / 2
     y: (Screen.height - height) / 2
     title: "路灯智能机箱控制系统"
+    property int pageIndex: 0
 
     Image {
         id: bgicon_img
@@ -36,8 +37,7 @@ Window {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                mySettingFrame.visible = false
-                myFrame.visible = true
+                rootMain.pageIndex = 0
             }
         }
     }
@@ -45,18 +45,17 @@ Window {
         id:seticon_img
         source: "qrc:/resources/images/设置.png"
         z: 1
-        x: main.width - seticon_img.width - 30
+        x: rootMain.width - seticon_img.width - 30
         y: (headicon_img.height - seticon_img.width) / 2
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                myFrame.visible = false
-                mySettingFrame.visible = true
+                rootMain.pageIndex = 1
             }
         }
     }
     Rectangle {
-        width: main.width
+        width: rootMain.width
         height: headicon_img.height
         color: "transparent"
         border.width: 0
@@ -90,26 +89,32 @@ Window {
         }
     }
 
-    MyFrame {
-        id: myFrame
-        visible: true
-        anchors.top: headicon_img.bottom
-        rootWidth: parent.width
-        rootHeight: parent.height - headicon_img.height
-        onMenuChanged: function(name){
-            console.debug("clicked => ", name);
-        }
-    }
+    SwipeView {
+        id: swipview
+        interactive: false
+        orientation: Qt.Horizontal
+        currentIndex: rootMain.pageIndex
+        anchors.fill: parent
+        anchors.topMargin: headicon_img.height
 
-    MySettingFrame {
-        id: mySettingFrame
-        visible: false
-        anchors.top: headicon_img.bottom
-        rootWidth: parent.width
-        rootHeight: parent.height - headicon_img.height
-        onMenuChanged: function(name){
-            console.debug("in main clicked => ", name);
+        MyFrame {
+            id: myFrame
+            rootWidth: rootMain.width
+            rootHeight: rootMain.height - headicon_img.height
+            onMenuChanged: function(name){
+                console.debug("clicked => ", name);
+            }
         }
+
+        MySettingFrame {
+            id: mySettingFrame
+            rootWidth: rootMain.width
+            rootHeight: rootMain.height - headicon_img.height
+            onMenuChanged: function(name){
+                console.debug("in rootMain clicked => ", name);
+            }
+        }
+
     }
 
     Timer {
